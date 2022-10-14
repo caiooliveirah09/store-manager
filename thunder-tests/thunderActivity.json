@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "1f5b885c-f72a-4468-ad67-5f8c5ae5165b",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products",
+    "url": "http://localhost:3000/products/999",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-13T21:10:41.642Z",
+    "modified": "2022-10-14T22:38:56.769Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "66c91390-1980-4a37-8e2b-510a3fe403be",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://www.thunderclient.com/welcome",
+    "url": "https://www.thunderclient.com/welcome",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-10-13T22:16:20.730Z",
+    "modified": "2022-10-13T22:16:21.865Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
