@@ -2,8 +2,9 @@ const { productsService } = require('../services');
 
 // const OK = 200;
 // const CREATED = 201;
-// const BAD_REQUEST = 400;
+const BAD_REQUEST = 400;
 const NOT_FOUND = 404;
+const UNPROCESSABLE_ENTITY = 422;
 
 const getAllProductsController = async (_req, res) => {
   const { type, message } = await productsService.getAllProductsService();
@@ -17,7 +18,17 @@ const getProductByIdController = async (req, res) => {
   return res.status(type).json(message);
 };
 
+const addNewProductController = async (req, res) => {
+  const product = req.body;
+  const { type, message } = await productsService.addNewProductService(product);
+  if (type === BAD_REQUEST || type === UNPROCESSABLE_ENTITY) {
+    return res.status(type).json({ message });
+  }
+  return res.status(type).json(message);
+};
+
 module.exports = {
   getAllProductsController,
   getProductByIdController,
+  addNewProductController,
 };

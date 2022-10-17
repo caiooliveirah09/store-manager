@@ -1,7 +1,5 @@
 const chai = require('chai');
 const sinon = require('sinon');
-const chaiHttp = require('chai-http');
-const app = require('../../../src/server');
 const connection = require('../../../src/db/connection');
 
 const mockAllProducts = [
@@ -15,8 +13,6 @@ const mockProduct = [
 ];
 
 const { expect } = chai;
-
-chai.use(chaiHttp);
 
 const { getAllProductsModel, getProductByIdModel } = require('../../../src/models/products.model');
 describe('test product models', function () {

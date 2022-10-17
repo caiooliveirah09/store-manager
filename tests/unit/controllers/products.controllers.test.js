@@ -1,8 +1,6 @@
 const chai = require("chai");
 const sinon = require("sinon");
-const chaiHttp = require("chai-http");
 const app = require("../../../src/server");
-const connection = require("../../../src/db/connection");
 const sinonChai = require("sinon-chai");
 
 const mockAllProducts = [
@@ -16,7 +14,6 @@ const mockProduct = [{ id: 1, name: "Martelo de Thor" }];
 const { expect } = chai;
 
 chai.use(sinonChai);
-chai.use(chaiHttp);
 
 const productsService = require('../../../src/services/products.services');
 
@@ -51,7 +48,7 @@ describe("test products controllers", async function () {
     expect(res.json).to.have.been.calledWith(mockProduct[0]);
     sinon.restore();
   });
-  it("3 - ", async function () {
+  it("3 - tests if getProductByIdController function return a status type 404 and an error 'Product not found'", async function () {
     const req = { params: { id: 999 } };
     const res = {};
     res.status = sinon.stub().returns(res);

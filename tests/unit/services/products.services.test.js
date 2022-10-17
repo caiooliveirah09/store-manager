@@ -1,7 +1,5 @@
 const chai = require("chai");
 const sinon = require("sinon");
-const chaiHttp = require("chai-http");
-const app = require("../../../src/server");
 const connection = require("../../../src/db/connection");
 
 const mockAllProducts = [
@@ -14,7 +12,6 @@ const mockProduct = [{ id: 1, name: "Martelo de Thor" }];
 
 const { expect } = chai;
 
-chai.use(chaiHttp);
 
 const {
   getAllProductsService,
