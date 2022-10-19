@@ -27,8 +27,19 @@ const addNewProductController = async (req, res) => {
   return res.status(type).json(message);
 };
 
+const updateProductByIdController = async (req, res) => {
+  const { id } = req.params;
+  const update = req.body;
+  const { type, message } = await productsService.updateProductByIdService(id, update);
+  if (type === NOT_FOUND || type === BAD_REQUEST || type === UNPROCESSABLE_ENTITY) {
+    return res.status(type).json({ message });
+  }
+  return res.status(type).json(message);
+};
+
 module.exports = {
   getAllProductsController,
   getProductByIdController,
   addNewProductController,
+  updateProductByIdController,
 };

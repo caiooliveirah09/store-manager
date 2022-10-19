@@ -30,8 +30,22 @@ const addNewProductService = async (product) => {
   return { type: CREATED, message: result[0] };
 };
 
+const updateProductByIdService = async (id, update) => {
+  if (!update.name) return { type: BAD_REQUEST, message: '"name" is required' };
+  if (update.name.length < 5) {
+    return {
+      type: UNPROCESSABLE_ENTITY,
+      message: '"name" length must be at least 5 characters long',
+    };
+  }
+  const result = await productsModel.updateProductByIdModel(id, update);
+  if (!result) return { type: NOT_FOUND, message: 'Product not found' };
+  return { type: OK, message: result };
+};
+
 module.exports = {
   getAllProductsService,
   getProductByIdService,
   addNewProductService,
+  updateProductByIdService,
 };
