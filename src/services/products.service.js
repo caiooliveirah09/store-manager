@@ -5,6 +5,7 @@ const CREATED = 201;
 const BAD_REQUEST = 400;
 const NOT_FOUND = 404;
 const UNPROCESSABLE_ENTITY = 422;
+const NO_CONTENT = 204;
 
 const getAllProductsService = async () => {
   const allProducts = await productsModel.getAllProductsModel();
@@ -43,9 +44,17 @@ const updateProductByIdService = async (id, update) => {
   return { type: OK, message: result };
 };
 
+const deleteProductByIdService = async (id) => {
+  const product = await productsModel.getProductByIdModel(id);
+  if (product.length === 0) return { type: NOT_FOUND, message: 'Product not found' };
+  await productsModel.deleteProductByIdModel(id);
+  return { type: NO_CONTENT };
+};
+
 module.exports = {
   getAllProductsService,
   getProductByIdService,
   addNewProductService,
   updateProductByIdService,
+  deleteProductByIdService,
 };
