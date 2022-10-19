@@ -1,15 +1,13 @@
-const { registerNewSaleService, getAllSalesService, getSalesByIdService } = require('../services/sales.service');
+const { registerNewSaleService, getAllSalesService,
+  getSalesByIdService } = require('../services/sales.service');
 
-const BAD_REQUEST = 400;
+// const BAD_REQUEST = 400;
 const NOT_FOUND = 404;
-const UNPROCESSABLE_ENTITY = 422;
+// const UNPROCESSABLE_ENTITY = 422;
 
 const registerNewSaleController = async (req, res) => {
   const sales = req.body;
   const { type, message } = await registerNewSaleService(sales);
-  if (type === BAD_REQUEST || type === NOT_FOUND || type === UNPROCESSABLE_ENTITY) {
-    return res.status(type).json({ message });
-  }
   return res.status(type).json(message);
 };
 
