@@ -15,7 +15,7 @@ const { expect } = chai;
 
 chai.use(sinonChai);
 
-const productsService = require('../../../src/services/products.services');
+const productsService = require('../../../src/services/products.service');
 
 const {
   getAllProductsController,

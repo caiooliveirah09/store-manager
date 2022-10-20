@@ -11,12 +11,13 @@ const mockAllProducts = [
 const mockProduct = [{ id: 1, name: "Martelo de Thor" }];
 
 const { expect } = chai;
-
+// 
 
 const {
   getAllProductsService,
   getProductByIdService,
-} = require("../../../src/services/products.services");
+} = require("../../../src/services/products.service");
+
 describe("test product services", function () {
   it("1 - tests if getAllProductsService function returns a object with type 200 and message with all products", async function () {
     sinon.stub(connection, "execute").resolves([mockAllProducts]);
