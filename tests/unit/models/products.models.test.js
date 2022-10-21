@@ -34,11 +34,11 @@ describe('test product models', function () {
     expect(connection.execute.called).to.be.equal(true);
     sinon.restore();
   })
-  it('3 -', async function () {
+  /*it('3 -', async function () {
     await addNewProductModel;
-    
+
   })
-  /*it('4 -', async function () {
+  it('4 -', async function () {
     await updateProductByIdModel;
   });
   it('5 -', async function () {
