@@ -1,6 +1,6 @@
 const chai = require("chai");
 const sinon = require("sinon");
-const app = require("../../../src/server");
+// const app = require("../../../src/server");
 const sinonChai = require("sinon-chai");
 
 const mockAllProducts = [
