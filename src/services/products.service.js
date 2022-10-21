@@ -27,7 +27,6 @@ const addNewProductService = async (product) => {
   }; 
 }
   const result = await productsModel.addNewProductModel(product.name);
-  console.log(result);
   return { type: CREATED, message: result[0] };
 };
 
