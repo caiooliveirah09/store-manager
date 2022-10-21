@@ -39,5 +39,6 @@ describe("test product services", function () {
     const mysql = await getProductByIdService(999);
     expect(mysql.type).to.be.equal(404);
     expect(mysql.message).to.be.equal("Product not found");
+    sinon.restore();
   });
 });
