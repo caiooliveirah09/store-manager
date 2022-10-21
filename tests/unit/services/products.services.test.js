@@ -11,7 +11,6 @@ const mockAllProducts = [
 const mockProduct = [{ id: 1, name: "Martelo de Thor" }];
 
 const { expect } = chai;
-// 
 
 const {
   getAllProductsService,

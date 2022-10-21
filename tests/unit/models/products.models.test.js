@@ -14,7 +14,13 @@ const mockProduct = [
 
 const { expect } = chai;
 
-const { getAllProductsModel, getProductByIdModel } = require('../../../src/models/products.model');
+const {
+  getAllProductsModel,
+  getProductByIdModel,
+  addNewProductModel,
+  updateProductByIdModel,
+  deleteProductByIdModel,
+} = require("../../../src/models/products.model");
 describe('test product models', function () {
   it('1 - tests if getAllProductsModel function returns all products', async function () {
     sinon.stub(connection, 'execute').resolves([mockAllProducts]);
@@ -28,4 +34,14 @@ describe('test product models', function () {
     expect(connection.execute.called).to.be.equal(true);
     sinon.restore();
   })
+  it('3 -', async function () {
+    await addNewProductModel;
+    
+  })
+  /*it('4 -', async function () {
+    await updateProductByIdModel;
+  });
+  it('5 -', async function () {
+    await deleteProductByIdModel;
+  });*/
 })
